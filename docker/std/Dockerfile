@@ -1,5 +1,7 @@
 FROM debian:latest
 
+WORKDIR /home
+
 RUN apt update \
     && apt install -y \
         lsb-release \
