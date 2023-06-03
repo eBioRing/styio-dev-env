@@ -1,5 +1,15 @@
 FROM debian:latest
 
+ARG LLVM_VERSION=16
+
+# [Alias]
+ENV clang=/usr/bin/clang-${LLVM_VERSION}
+ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
+
+# [CMake]
+ENV CC=/usr/bin/clang-${LLVM_VERSION}
+ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
+
 WORKDIR /root
 
 RUN apt update \
@@ -11,10 +21,10 @@ RUN apt update \
         gnupg \
     # [CMake]
     && apt install -y cmake \
-    # [LLVM]: Version 16
+    # [LLVM]
     && wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
-    && ./llvm.sh 16 \
+    && ./llvm.sh ${LLVM_VERSION} \
     # [Python3]
     && apt install -y python3 python3-pip \
     # [Node.js]: nvm
