@@ -31,5 +31,3 @@ RUN apt update \
     && apt install gh -y \
     # [Styio]
     && git clone https://github.com/eBioRing/styio.git
-    
-WORKDIR /root/styio
