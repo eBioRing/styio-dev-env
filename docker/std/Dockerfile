@@ -30,6 +30,6 @@ RUN apt update \
     && apt update \
     && apt install gh -y \
     # [Styio]
-    && gh repo clone eBioRing/styio
+    && git clone https://github.com/eBioRing/styio.git
     
 WORKDIR /root/styio
