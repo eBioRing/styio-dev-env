@@ -19,6 +19,7 @@ RUN apt update \
         software-properties-common \
         curl wget \
         vim git \
+        rsync \
         gnupg \
     # [CMake]
     && apt install -y cmake \
@@ -44,4 +45,7 @@ RUN apt update \
     # [Styio]
     && git clone https://github.com/eBioRing/styio.git \
     # [Visual Studio Code]
-    && git clone https://github.com/eBioRing/styio-dev-env.git 
+    && git clone https://github.com/eBioRing/styio-dev-env.git \
+    && rsync -a styio-dev-env/docker/extra/* ${WORK_SPACE} \
+    && rsync -a styio-dev-env/docker/extra/.* ${WORK_SPACE} \
+    && rm -rf styio-dev-env
