@@ -48,3 +48,5 @@ RUN apt update \
     && git clone https://github.com/eBioRing/styio-dev-env.git \
     && rsync -a styio-dev-env/docker/extra/.vscode ${WORK_SPACE} \
     && rm -rf styio-dev-env
+    
+WORKDIR ${WORK_SPACE}/styio
