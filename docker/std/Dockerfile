@@ -41,4 +41,6 @@ RUN apt update \
     && apt update \
     && apt install gh -y \
     # [Styio]
-    && git clone https://github.com/eBioRing/styio.git
+    && git clone https://github.com/eBioRing/styio.git \
+    # [Visual Studio Code]
+    && wget https://github.com/eBioRing/styio-dev-env/tree/main/docker/extra/.vscode
