@@ -1,6 +1,7 @@
 FROM debian:latest
 
 ARG LLVM_VERSION=16
+ARG WORK_SPACE=/root
 
 # [Alias]
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
@@ -10,7 +11,7 @@ ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
 ENV CC=/usr/bin/clang-${LLVM_VERSION}
 ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 
-WORKDIR /root
+WORKDIR ${WORK_SPACE}
 
 RUN apt update \
     && apt install -y \
@@ -43,4 +44,6 @@ RUN apt update \
     # [Styio]
     && git clone https://github.com/eBioRing/styio.git \
     # [Visual Studio Code]
-    && wget https://github.com/eBioRing/styio-dev-env/tree/main/docker/extra/.vscode
+    && git clone https://github.com/eBioRing/styio-dev-env.git 
+    && mv ${WORK_SPACE}/styio-dev-env/docker/extra/* ${WORK_SPACE}
+    && rm -rf ${WORK_SPACE}/styio-dev-env
