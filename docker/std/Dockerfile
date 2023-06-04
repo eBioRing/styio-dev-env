@@ -45,5 +45,5 @@ RUN apt update \
     && git clone https://github.com/eBioRing/styio.git \
     # [Visual Studio Code]
     && git clone https://github.com/eBioRing/styio-dev-env.git \
-    && mv ${WORK_SPACE}/styio-dev-env/docker/extra/* ${WORK_SPACE} \
-    && rm -rf ${WORK_SPACE}/styio-dev-env
+    && mv styio-dev-env/docker/* ${WORK_SPACE} \
+    && rm -rf styio-dev-env
