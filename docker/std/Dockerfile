@@ -1,6 +1,6 @@
 FROM debian:latest
 
-ARG LLVM_VERSION=16
+ENV LLVM_VERSION=16
 
 # [Alias]
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
