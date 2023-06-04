@@ -21,6 +21,7 @@ RUN apt update \
         gnupg \
     # [CMake]
     && apt install -y cmake \
+    && apt install -y libssl-dev libcurl4-openssl-dev \
     # [LLVM]
     && wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
