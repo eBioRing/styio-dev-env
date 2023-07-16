@@ -29,7 +29,9 @@ RUN apt update \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} \
     # [ICU]
-    && apt install -y libicu67 libicu-dev \
+    && apt install -y libicu67 libicu-dev 
+
+RUN apt update \
     # [Python3]
     && apt install -y python3 python3-pip \
     # [Node.js]: nvm
@@ -37,7 +39,9 @@ RUN apt update \
     && . ~/.bashrc \
     && nvm install node --lts \
     # [Node.js]: yarn
-    && apt install -y yarn \
+    && apt install -y yarn 
+
+RUN apt update \
     # [GitHub Client]
     && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
     && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
