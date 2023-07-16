@@ -29,6 +29,7 @@ RUN apt update \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} \
     # [ICU]
+    && apt update
     && apt install -y libicu72 libicu-dev \
     # [Python3]
     && apt install -y python3 python3-pip \
