@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:11
 
 ARG LLVM_VERSION=16
 ARG WORK_SPACE=/root
