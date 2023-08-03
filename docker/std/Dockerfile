@@ -31,7 +31,9 @@ RUN apt update \
     && . ~/.bashrc \
     && nvm install node --lts \
     # [Node.js]: yarn
-    && apt install -y yarn 
+    && apt install -y yarn \
+    # [LLVM - Lit]
+    && pip install lit
 
 RUN apt update \
     # [GitHub Client]
