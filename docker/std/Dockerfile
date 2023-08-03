@@ -3,11 +3,12 @@ FROM debian:11
 ARG LLVM_VERSION=16
 ARG WORK_SPACE=/root
 
-# [Alias]
+# [System Environment]: Alias
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
 ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
+ENV FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}
 
-# [CMake]
+# [System Environment]: CMake
 ENV CC=/usr/bin/clang-${LLVM_VERSION}
 ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 
