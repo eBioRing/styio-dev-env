@@ -3,15 +3,6 @@ FROM debian:11
 ARG LLVM_VERSION=16
 ARG WORK_SPACE=/root
 
-# [System Environment]: Alias
-ENV clang=/usr/bin/clang-${LLVM_VERSION}
-ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
-ENV FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}
-
-# [System Environment]: CMake
-ENV CC=/usr/bin/clang-${LLVM_VERSION}
-ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
-
 WORKDIR ${WORK_SPACE}
 
 RUN apt update \
@@ -55,5 +46,19 @@ RUN apt update \
     && git clone https://github.com/eBioRing/styio-dev-env.git \
     && rsync -a styio-dev-env/docker/extra/.vscode ${WORK_SPACE} \
     && rm -rf styio-dev-env
+
+# [System Environment Variables]
+ENV clang=/usr/bin/clang-${LLVM_VERSION}
+ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
+ENV FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}
+
+# [System Environment Variables]: CMake
+ENV CC=/usr/bin/clang-${LLVM_VERSION}
+ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
+
+# [Alias]
+RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc
+RUN echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
+RUN echo "alias FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}" >>/root/.bashrc
     
 WORKDIR ${WORK_SPACE}/styio
