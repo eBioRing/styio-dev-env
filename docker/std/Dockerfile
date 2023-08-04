@@ -53,6 +53,8 @@ RUN apt update \
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
 ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
 ENV FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}
+ENV filecheck=/usr/bin/FileCheck-${LLVM_VERSION}
+ENV styio=/root/styio/styio
 
 # [System Environment Variables]: CMake
 ENV CC=/usr/bin/clang-${LLVM_VERSION}
