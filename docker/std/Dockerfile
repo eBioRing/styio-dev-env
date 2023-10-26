@@ -20,6 +20,8 @@ RUN apt update \
     && wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} all \
+    # [LLVM: zstd]
+    && apt install -y libzstd-dev libdwarf-dev \
     # [ICU]
     && apt install -y libicu67 libicu-dev 
 
