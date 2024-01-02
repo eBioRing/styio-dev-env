@@ -13,8 +13,7 @@ ARG WORK_SPACE=/root
 WORKDIR ${WORK_SPACE}
 
 RUN apt-get install -y \
-      lsb-release \
-      software-properties-common \
+      lsb-release software-properties-common \
       curl wget vim git \
       rsync gnupg \
     # [CMake]
