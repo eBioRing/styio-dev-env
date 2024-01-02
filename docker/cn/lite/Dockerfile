@@ -22,10 +22,7 @@ RUN apt-get install -y \
     # [ICU for Unicode]
     && apt-get install -y libicu-dev \
     # [zstd for LLVM]
-    && apt-get install -y libzstd-dev libdwarf-dev
-
-# [Python3]
-RUN apt-get install -y python3-pip \
+    && apt-get install -y libzstd-dev libdwarf-dev \
     # [lit for LLVM]
     && pip install lit
 
