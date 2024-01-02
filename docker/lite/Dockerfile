@@ -34,8 +34,6 @@ RUN apt update \
 # [System Environment Variables]
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
 ENV clang++=/usr/bin/clang++-${LLVM_VERSION}
-ENV FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}
-ENV filecheck=/usr/bin/FileCheck-${LLVM_VERSION}
 
 # [System Environment Variables]: CMake
 ENV CC=/usr/bin/clang-${LLVM_VERSION}
@@ -44,8 +42,6 @@ ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 # [Alias]
 RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc
 RUN echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
-RUN echo "alias FileCheck=/usr/bin/FileCheck-${LLVM_VERSION}" >>/root/.bashrc
-RUN echo "alias filecheck=/usr/bin/FileCheck-${LLVM_VERSION}" >>/root/.bashrc
-RUN echo "alias styio=/root/styio/styio" >>/root/.bashrc
+RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck
     
 WORKDIR ${WORK_SPACE}/styio
