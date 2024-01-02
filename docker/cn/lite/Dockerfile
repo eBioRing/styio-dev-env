@@ -27,16 +27,16 @@ RUN apt-get install -y \
     # [zstd for LLVM]
     && apt-get install -y libzstd-dev libdwarf-dev
 
+RUN apt-get update \
+    # [Python3]
+    && apt-get install -y python3 python3-pip \
+    # [lit for LLVM]
+    && pip install lit
+
 # [LLVM]
 RUN wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} all 
-
-RUN apt-get update \
-    # [Python3]
-    && apt-get install -y python3 python3-pip \
-    # [LLVM - Lit]
-    && pip install lit
 
 # [System Environment Variables]
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
