@@ -29,7 +29,7 @@ RUN apt-get install -y \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} all \
     # [ICU]
-    && apt-get install -y libicu67 libicu-dev 
+    && apt-get install -y libicu-dev 
 
 RUN apt-get update \
     # [Python3]
