@@ -25,7 +25,7 @@ RUN apt-get install -y \
     && apt-get install -y libzstd-dev libdwarf-dev
 
 # [Python3]
-RUN apt-get install -y python3-pip \
+RUN apt install -y python-full python3-pip \
     # [lit for LLVM]
     && pip install lit
 
