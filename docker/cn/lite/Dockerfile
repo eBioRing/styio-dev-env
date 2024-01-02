@@ -12,14 +12,13 @@ ARG WORK_SPACE=/root
 
 WORKDIR ${WORK_SPACE}
 
-RUN apt update \
-    && apt install -y \
-        lsb-release \
-        software-properties-common \
-        curl wget \
-        vim git \
-        rsync \
-        gnupg \
+RUN apt install -y \
+      lsb-release \
+      software-properties-common \
+      curl wget \
+      vim git \
+      rsync \
+      gnupg \
     # [CMake]
     && apt install -y cmake \
     && apt install -y libssl-dev libcurl4-openssl-dev \
