@@ -23,15 +23,14 @@ RUN apt-get install -y \
     && apt-get install -y cmake \
     && apt-get install -y libssl-dev libcurl4-openssl-dev \
     # [ICU for Unicode]
-    && apt-get install -y libicu-dev 
+    && apt-get install -y libicu-dev \
     # [zstd for LLVM]
     && apt-get install -y libzstd-dev libdwarf-dev
 
 # [LLVM]
 RUN wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
-    && ./llvm.sh ${LLVM_VERSION} all \
-    
+    && ./llvm.sh ${LLVM_VERSION} all 
 
 RUN apt-get update \
     # [Python3]
