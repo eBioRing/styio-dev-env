@@ -22,14 +22,16 @@ RUN apt-get install -y \
     # [CMake]
     && apt-get install -y cmake \
     && apt-get install -y libssl-dev libcurl4-openssl-dev \
-    # [LLVM: zstd]
-    && apt-get install -y libzstd-dev libdwarf-dev \
-    # [LLVM]
-    && wget https://apt.llvm.org/llvm.sh \
+    # [ICU for Unicode]
+    && apt-get install -y libicu-dev 
+    # [zstd for LLVM]
+    && apt-get install -y libzstd-dev libdwarf-dev
+
+# [LLVM]
+RUN wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} all \
-    # [ICU]
-    && apt-get install -y libicu-dev 
+    
 
 RUN apt-get update \
     # [Python3]
