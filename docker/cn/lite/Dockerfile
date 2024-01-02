@@ -1,6 +1,6 @@
 FROM debian:12
 
-RUN apt-get install -y apt-transport-https ca-certificates \ 
+RUN apt-get update && apt-get install -y apt-transport-https ca-certificates \ 
   && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
   && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
   && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
