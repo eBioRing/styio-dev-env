@@ -16,12 +16,12 @@ RUN apt update \
     # [CMake]
     && apt install -y cmake \
     && apt install -y libssl-dev libcurl4-openssl-dev \
+    # [LLVM: zstd]
+    && apt install -y libzstd-dev libdwarf-dev \
     # [LLVM]
     && wget https://apt.llvm.org/llvm.sh \
     && chmod +x llvm.sh \
     && ./llvm.sh ${LLVM_VERSION} all \
-    # [LLVM: zstd]
-    && apt install -y libzstd-dev libdwarf-dev \
     # [ICU]
     && apt install -y libicu67 libicu-dev 
 
