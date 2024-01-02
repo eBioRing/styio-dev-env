@@ -1,9 +1,10 @@
 FROM debian:12
 
-RUN echo -e "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list 
-RUN echo -e "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list 
-RUN echo -e "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list 
-RUN echo -e "deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list
+RUN apt update && apt install -y apt-transport-https ca-certificates \ 
+  && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
+  && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
+  && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list \
+  && echo "deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware \n" >> /etc/apt/sources.list
 
 ARG LLVM_VERSION=18
 ARG WORK_SPACE=/root
