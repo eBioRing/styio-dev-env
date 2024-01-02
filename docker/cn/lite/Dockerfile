@@ -15,10 +15,8 @@ WORKDIR ${WORK_SPACE}
 RUN apt-get install -y \
       lsb-release \
       software-properties-common \
-      curl wget \
-      vim git \
-      rsync \
-      gnupg \
+      curl wget vim git \
+      rsync gnupg \
     # [CMake]
     && apt-get install -y cmake \
     && apt-get install -y libssl-dev libcurl4-openssl-dev \
