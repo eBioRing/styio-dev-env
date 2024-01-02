@@ -13,26 +13,27 @@ ARG WORK_SPACE=/root
 WORKDIR ${WORK_SPACE}
 
 RUN apt-get install -y \
-      lsb-release software-properties-common \
-      curl wget vim git \
-      rsync gnupg \
-    # [CMake]
-    && apt-get install -y cmake \
-    && apt-get install -y libssl-dev libcurl4-openssl-dev \
-    # [ICU for Unicode]
-    && apt-get install -y libicu-dev \
-    # [zstd for LLVM]
-    && apt-get install -y libzstd-dev libdwarf-dev
+    lsb-release software-properties-common \
+    curl wget vim git \
+    rsync gnupg \
+  # [CMake]
+  && apt-get install -y cmake \
+  && apt-get install -y libssl-dev libcurl4-openssl-dev \
+  # [ICU for Unicode]
+  && apt-get install -y libicu-dev \
+  # [zstd for LLVM]
+  && apt-get install -y libzstd-dev libdwarf-dev
 
 # [Python3]
-RUN apt install -y python-full python3-pip \
-    # [lit for LLVM]
-    && pip install lit
+RUN apt install -y pipx \
+  &&  pipx ensurepath \
+  # [lit for LLVM]
+  && pipx install lit
 
 # [LLVM]
 RUN wget https://apt.llvm.org/llvm.sh \
-    && chmod +x llvm.sh \
-    && ./llvm.sh ${LLVM_VERSION} all 
+  && chmod +x llvm.sh \
+  && ./llvm.sh ${LLVM_VERSION} all 
 
 # [System Environment Variables]
 ENV clang=/usr/bin/clang-${LLVM_VERSION}
