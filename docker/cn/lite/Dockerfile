@@ -47,5 +47,3 @@ ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc
 RUN echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
 RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck
-    
-WORKDIR ${WORK_SPACE}/styio
