@@ -46,8 +46,9 @@ ENV CC=/usr/bin/clang-${LLVM_VERSION}
 ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 
 # [Alias]
-RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc
-RUN echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
+RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc \
+  && echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
+
 RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck \
   && ln /usr/bin/clang-${LLVM_VERSION} /usr/bin/clang \ # clang frontend
   && ln /usr/bin/clang++-${LLVM_VERSION} /usr/bin/clang++ \ # clang++ frontend
