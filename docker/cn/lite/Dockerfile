@@ -48,11 +48,11 @@ ENV CXX=/usr/bin/clang++-${LLVM_VERSION}
 # [Alias]
 RUN echo "alias clang=/usr/bin/clang-${LLVM_VERSION}" >>/root/.bashrc
 RUN echo "alias clang++=/usr/bin/clang++-${LLVM_VERSION}" >>/root/.bashrc
-RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck
-RUN ln /usr/bin/clang-${LLVM_VERSION} /usr/bin/clang # clang frontend
-RUN ln /usr/bin/clang++-${LLVM_VERSION} /usr/bin/clang++ # clang++ frontend
-RUN ln /usr/bin/llvm-as-${LLVM_VERSION} /usr/bin/llvm-as # LLVM IR -> Bitcode (Executable) [file.ll -> file.bc]
-RUN ln /usr/bin/llvm-dis-${LLVM_VERSION} /usr/bin/llvm-dis # LLVM Bitcode (Executable) -> LLVM IR [file.bc -> file.ll]
-RUN ln /usr/bin/llvm-link-${LLVM_VERSION} /usr/bin/llvm-link # Link LLVM Bitcode [Link files.ll]
-RUN ln /usr/bin/llc-${LLVM_VERSION} /usr/bin/llc # LLVM Bitcode (Executable) -> Specific Machine Code
-RUN ln /usr/bin/lli-${LLVM_VERSION} /usr/bin/lli # Execute LLVM Bitcode (JIT) [Interpret file.ll]
+RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck \
+  && ln /usr/bin/clang-${LLVM_VERSION} /usr/bin/clang \ # clang frontend
+  && ln /usr/bin/clang++-${LLVM_VERSION} /usr/bin/clang++ \ # clang++ frontend
+  && ln /usr/bin/llvm-as-${LLVM_VERSION} /usr/bin/llvm-as \ # LLVM IR -> Bitcode (Executable) [file.ll -> file.bc]
+  && ln /usr/bin/llvm-dis-${LLVM_VERSION} /usr/bin/llvm-dis \ # LLVM Bitcode (Executable) -> LLVM IR [file.bc -> file.ll]
+  && ln /usr/bin/llvm-link-${LLVM_VERSION} /usr/bin/llvm-link \ # Link LLVM Bitcode [Link files.ll]
+  && ln /usr/bin/llc-${LLVM_VERSION} /usr/bin/llc \ # LLVM Bitcode (Executable) -> Specific Machine Code
+  && ln /usr/bin/lli-${LLVM_VERSION} /usr/bin/lli # Execute LLVM Bitcode (JIT) [Interpret file.ll]
