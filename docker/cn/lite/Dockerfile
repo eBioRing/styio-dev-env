@@ -24,7 +24,9 @@ RUN apt-get install -y \
   # [zstd for LLVM]
   && apt-get install -y libzstd-dev libdwarf-dev \
   # [zlib for LLVM]
-  && apt-get install -y zlib1g-dev
+  && apt-get install -y zlib1g-dev \
+  # [libedit for LLVM]
+  && apt-get install -y libedit-dev
 
 # [Python3]
 RUN apt install -y pipx \
