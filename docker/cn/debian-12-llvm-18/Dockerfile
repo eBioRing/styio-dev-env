@@ -1,8 +1,7 @@
 FROM debian:12
-
 ARG LLVM_VERSION=18
-ARG WORK_SPACE=/root
 
+ARG WORK_SPACE=/root
 WORKDIR ${WORK_SPACE}
 
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates \ 
