@@ -64,4 +64,8 @@ RUN ln /usr/bin/FileCheck-${LLVM_VERSION} /usr/bin/FileCheck \
   # LLVM Bitcode (Executable) -> Specific Machine Code
   && ln /usr/bin/llc-${LLVM_VERSION} /usr/bin/llc \ 
   # Execute LLVM Bitcode (JIT) [Interpret file.ll]
-  && ln /usr/bin/lli-${LLVM_VERSION} /usr/bin/lli 
+  && ln /usr/bin/lli-${LLVM_VERSION} /usr/bin/lli \
+  # LLVM Linker [lld] (Replacement of /usr/bin/ld)
+  && ln /usr/bin/lld-${LLVM_VERSION} /usr/bin/lld \
+  # LLVM objdump (Replacement of /usr/bin/objdump)
+  && ln /usr/bin/llvm-objdump-${LLVM_VERSION} /usr/bin/llvm-objdump
